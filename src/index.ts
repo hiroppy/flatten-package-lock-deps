@@ -21,8 +21,13 @@ export type PackageLock = {
   };
 };
 
+type Options = {
+  ignoreDev: boolean;
+};
+
 type ModulesList = {
   [key in string]: {
+    dev: boolean;
     depth: number;
     name: string;
     version: string;
@@ -31,14 +36,20 @@ type ModulesList = {
   };
 };
 
-export function flattenPackageLockDeps(packageLock: PackageLock) {
+export function flattenPackageLockDeps(packageLock: PackageLock, options?: Options) {
   const res: ModulesList = {};
   const { dependencies } = packageLock;
+  const { ignoreDev = false } = options || {};
 
   function walk(dep: Package, name: string, depth: number) {
-    const { version, resolved, integrity } = dep;
+    const { version, resolved, integrity, dev } = dep;
+
+    if (ignoreDev && dev) {
+      return;
+    }
 
     res[`${name}@${version}`] = {
+      dev: !!dev,
       depth,
       name,
       version,

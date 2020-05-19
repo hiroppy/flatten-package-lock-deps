@@ -17,7 +17,9 @@ $ npm i flatten-package-lock-deps
 import { flattenPackageLockDeps } from 'flatten-package-lock-deps';
 import packageLock from './package-lock.json';
 
-const list = flattenPackageLockDeps(packageLock);
+const list = flattenPackageLockDeps(packageLock, {
+  ignoreDeps: false, // the default value is false
+});
 ```
 
 ## Development
