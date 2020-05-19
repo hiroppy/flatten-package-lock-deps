@@ -18,7 +18,7 @@ import { flattenPackageLockDeps } from 'flatten-package-lock-deps';
 import packageLock from './package-lock.json';
 
 const list = flattenPackageLockDeps(packageLock, {
-  ignoreDeps: false, // the default value is false
+  ignoreDev: false, // the default value is false
 });
 ```
 
