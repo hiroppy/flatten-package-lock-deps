@@ -33,6 +33,7 @@ type ModulesList = {
     version: string;
     resolved: string;
     integrity: string;
+    parents: string[];
   };
 };
 
@@ -41,30 +42,37 @@ export function flattenPackageLockDeps(packageLock: PackageLock, options?: Optio
   const { dependencies } = packageLock;
   const { ignoreDev = false } = options || {};
 
-  function walk(dep: Package, name: string, depth: number) {
-    const { version, resolved, integrity, dev } = dep;
+  function walk(dep: Package, name: string, depth: number, parentName: string) {
+    const { version, resolved, integrity, dev, dependencies } = dep;
 
     if (ignoreDev && dev) {
       return;
     }
 
-    res[`${name}@${version}`] = {
-      dev: !!dev,
-      depth,
-      name,
-      version,
-      resolved,
-      integrity,
-    };
+    const key = `${name}@${version}`;
 
-    if (dep.dependencies) {
-      Object.entries(dep.dependencies).forEach(([key, value]) => {
+    if (res[key]) {
+      res[key].parents.push(parentName);
+    } else {
+      res[key] = {
+        dev: !!dev,
+        depth,
+        name,
+        version,
+        resolved,
+        integrity,
+        parents: depth === 0 ? [] : [parentName],
+      };
+    }
+
+    if (dependencies) {
+      Object.entries(dependencies).forEach(([key, value]) => {
         const { version, resolved, integrity, dev, dependencies } = value;
 
         ++depth;
 
         if (dependencies) {
-          walk(value, name, depth);
+          walk(value, key, depth, name);
         } else {
           res[`${key}@${version}`] = {
             dev: !!dev,
@@ -73,6 +81,7 @@ export function flattenPackageLockDeps(packageLock: PackageLock, options?: Optio
             version,
             resolved,
             integrity,
+            parents: depth === 0 ? [] : [parentName],
           };
         }
       });
@@ -80,7 +89,7 @@ export function flattenPackageLockDeps(packageLock: PackageLock, options?: Optio
   }
 
   Object.entries(dependencies).forEach(([moduleName, moduleData]) => {
-    walk(moduleData, moduleName, 0); // depth 0 is the root (./node_modules)
+    walk(moduleData, moduleName, 0, moduleName); // depth 0 is the root (./node_modules)
   });
 
   return res;
