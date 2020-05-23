@@ -67,23 +67,7 @@ export function flattenPackageLockDeps(packageLock: PackageLock, options?: Optio
 
     if (dependencies) {
       Object.entries(dependencies).forEach(([key, value]) => {
-        const { version, resolved, integrity, dev, dependencies } = value;
-
-        ++depth;
-
-        if (dependencies) {
-          walk(value, key, depth, name);
-        } else {
-          res[`${key}@${version}`] = {
-            dev: !!dev,
-            depth,
-            name: key,
-            version,
-            resolved,
-            integrity,
-            parents: depth === 0 ? [] : [parentName],
-          };
-        }
+        walk(value, key, ++depth, parentName);
       });
     }
   }

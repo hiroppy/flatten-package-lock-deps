@@ -1205,6 +1205,7 @@ Object {
     "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
     "name": "debug",
     "parents": Array [
+      "expand-brackets",
       "snapdragon",
     ],
     "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz",
@@ -1270,6 +1271,10 @@ Object {
     "integrity": "sha1-w1se+RjsPJkPmlvFe+BKrOxcgRY=",
     "name": "define-property",
     "parents": Array [
+      "class-utils",
+      "expand-brackets",
+      "object-copy",
+      "snapdragon",
       "static-extend",
     ],
     "resolved": "https://registry.npmjs.org/define-property/-/define-property-0.2.5.tgz",
@@ -1281,6 +1286,8 @@ Object {
     "integrity": "sha1-dp66rz9KY6rTr56NMEybvnm/sOY=",
     "name": "define-property",
     "parents": Array [
+      "base",
+      "extglob",
       "snapdragon-node",
     ],
     "resolved": "https://registry.npmjs.org/define-property/-/define-property-1.0.0.tgz",
@@ -1485,6 +1492,11 @@ Object {
     "integrity": "sha1-Ua99YUrZqfYQ6huvu5idaxxWiQ8=",
     "name": "extend-shallow",
     "parents": Array [
+      "expand-brackets",
+      "extglob",
+      "sane",
+      "sane",
+      "set-value",
       "snapdragon",
     ],
     "resolved": "https://registry.npmjs.org/extend-shallow/-/extend-shallow-2.0.1.tgz",
@@ -1929,6 +1941,9 @@ Object {
     "integrity": "sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==",
     "name": "is-accessor-descriptor",
     "parents": Array [
+      "base",
+      "define-property",
+      "extglob",
       "snapdragon-node",
     ],
     "resolved": "https://registry.npmjs.org/is-accessor-descriptor/-/is-accessor-descriptor-1.0.0.tgz",
@@ -1976,6 +1991,9 @@ Object {
     "integrity": "sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==",
     "name": "is-data-descriptor",
     "parents": Array [
+      "base",
+      "define-property",
+      "extglob",
       "snapdragon-node",
     ],
     "resolved": "https://registry.npmjs.org/is-data-descriptor/-/is-data-descriptor-1.0.0.tgz",
@@ -1996,6 +2014,9 @@ Object {
     "integrity": "sha512-2eis5WqQGV7peooDyLmNEPUrps9+SXX5c9pL3xEB+4e9HnGuDa7mB7kHxHw4CbqS9k1T2hOH3miL8n8WtiYVtg==",
     "name": "is-descriptor",
     "parents": Array [
+      "base",
+      "define-property",
+      "extglob",
       "snapdragon-node",
     ],
     "resolved": "https://registry.npmjs.org/is-descriptor/-/is-descriptor-1.0.2.tgz",
@@ -2085,6 +2106,8 @@ Object {
     "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
     "name": "is-plain-object",
     "parents": Array [
+      "extend-shallow",
+      "mixin-deep",
       "set-value",
     ],
     "resolved": "https://registry.npmjs.org/is-plain-object/-/is-plain-object-2.0.4.tgz",
@@ -2513,11 +2536,12 @@ Object {
     "version": "2.0.0",
   },
   "js-tokens@4.0.0": Object {
-    "depth": 1,
-    "dev": false,
+    "depth": 6,
+    "dev": true,
     "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==",
     "name": "js-tokens",
     "parents": Array [
+      "@babel/highlight",
       "loose-envify",
     ],
     "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
@@ -2614,11 +2638,17 @@ Object {
     "version": "1.4.1",
   },
   "kind-of@3.2.2": Object {
-    "depth": 1,
+    "depth": 2,
     "dev": true,
     "integrity": "sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=",
     "name": "kind-of",
     "parents": Array [
+      "has-values",
+      "is-accessor-descriptor",
+      "is-data-descriptor",
+      "object-copy",
+      "sane",
+      "snapdragon-util",
       "to-object-path",
     ],
     "resolved": "https://registry.npmjs.org/kind-of/-/kind-of-3.2.2.tgz",
@@ -2852,6 +2882,7 @@ Object {
     "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=",
     "name": "ms",
     "parents": Array [
+      "expand-brackets",
       "snapdragon",
     ],
     "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",
@@ -3517,6 +3548,8 @@ Object {
     "integrity": "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==",
     "name": "semver",
     "parents": Array [
+      "@babel/core",
+      "cross-spawn",
       "normalize-package-data",
     ],
     "resolved": "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz",
@@ -3537,6 +3570,7 @@ Object {
     "integrity": "sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==",
     "name": "semver",
     "parents": Array [
+      "jest-snapshot",
       "node-notifier",
     ],
     "resolved": "https://registry.npmjs.org/semver/-/semver-7.3.2.tgz",
@@ -3691,11 +3725,13 @@ Object {
     "version": "0.4.0",
   },
   "source-map@0.5.7": Object {
-    "depth": 5,
+    "depth": 2,
     "dev": true,
     "integrity": "sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=",
     "name": "source-map",
     "parents": Array [
+      "@babel/core",
+      "@babel/generator",
       "snapdragon",
     ],
     "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz",
@@ -3992,6 +4028,7 @@ Object {
     "integrity": "sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==",
     "name": "tough-cookie",
     "parents": Array [
+      "request",
       "request-promise-native",
     ],
     "resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz",
@@ -4216,6 +4253,7 @@ Object {
     "integrity": "sha512-VlZwKPCkYKxQgeSbH5EyngOmRp7Ww7I9rQLERETtf5ofd9pGeswWiOtogpEO850jziPRarreGxn5QIiTqpb2wA==",
     "name": "webidl-conversions",
     "parents": Array [
+      "domexception",
       "whatwg-url",
     ],
     "resolved": "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-5.0.0.tgz",
@@ -4381,17 +4419,6 @@ Object {
 
 exports[`lock1 should return result when ignoreDeps is true 1`] = `
 Object {
-  "anymatch@2.0.0": Object {
-    "depth": 1,
-    "dev": true,
-    "integrity": "sha512-5teOsQWABXHHBFP9y3skS5P3d/WfWXpv3FUpy+LorMrNYaT9pI4oLMQX7jzQ2KklNpGpWHzdCXTDT2Y3XGlZBw==",
-    "name": "anymatch",
-    "parents": Array [
-      "sane",
-    ],
-    "resolved": "https://registry.npmjs.org/anymatch/-/anymatch-2.0.0.tgz",
-    "version": "2.0.0",
-  },
   "is-plain-object@1.0.0": Object {
     "depth": 0,
     "dev": false,
@@ -4441,28 +4468,6 @@ Object {
     "resolved": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
     "version": "1.4.0",
   },
-  "micromatch@3.1.10": Object {
-    "depth": 5,
-    "dev": true,
-    "integrity": "sha512-MWikgl9n9M3w+bpsY3He8L+w9eF9338xRl8IAO5viDizwSzziFEyUzo2xrrloB64ADbTf8uA8vRqqttDTOmccg==",
-    "name": "micromatch",
-    "parents": Array [
-      "sane",
-    ],
-    "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-3.1.10.tgz",
-    "version": "3.1.10",
-  },
-  "normalize-path@2.1.1": Object {
-    "depth": 6,
-    "dev": true,
-    "integrity": "sha1-GrKLVW4Zg2Oowab35vogE3/mrtk=",
-    "name": "normalize-path",
-    "parents": Array [
-      "sane",
-    ],
-    "resolved": "https://registry.npmjs.org/normalize-path/-/normalize-path-2.1.1.tgz",
-    "version": "2.1.1",
-  },
   "object-assign@4.1.1": Object {
     "depth": 0,
     "dev": false,
@@ -4507,17 +4512,6 @@ Object {
     "parents": Array [],
     "resolved": "https://registry.npmjs.org/sane/-/sane-4.1.0.tgz",
     "version": "4.1.0",
-  },
-  "to-regex-range@2.1.1": Object {
-    "depth": 7,
-    "dev": true,
-    "integrity": "sha1-fIDBe53+vlmeJzZ+DU3VWQFB2zg=",
-    "name": "to-regex-range",
-    "parents": Array [
-      "sane",
-    ],
-    "resolved": "https://registry.npmjs.org/to-regex-range/-/to-regex-range-2.1.1.tgz",
-    "version": "2.1.1",
   },
 }
 `;
@@ -4786,6 +4780,10 @@ Object {
     "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
     "name": "object-assign",
     "parents": Array [
+      "cors",
+      "prop-types",
+      "react",
+      "react-dom",
       "scheduler",
     ],
     "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
@@ -5222,6 +5220,10 @@ Object {
     "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
     "name": "object-assign",
     "parents": Array [
+      "cors",
+      "prop-types",
+      "react",
+      "react-dom",
       "scheduler",
     ],
     "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
